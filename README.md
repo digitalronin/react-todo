@@ -1,3 +1,5 @@
+https://auth0.com/blog/beyond-create-react-app-react-router-redux-saga-and-more/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
