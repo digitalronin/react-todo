@@ -10,7 +10,7 @@ const auth0client = new auth0.WebAuth({
 });
 
 export function handleAuthentication() {
-  return new Promise ((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     auth0client.parseHash((err, authResult) => {
       if (err) return reject(err);
       if (!authResult || !authResult.idToken) {
