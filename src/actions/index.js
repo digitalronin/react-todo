@@ -23,5 +23,5 @@ export function addToDo(title) {
 export function handleAuthenticationCallback() {
   return {
     type: HANDLE_AUTHENTICATION_CALLBACK
-  }
+  };
 }
