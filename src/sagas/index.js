@@ -39,7 +39,8 @@ export function* asyncAddToDoItem(action) {
     body: JSON.stringify(action.toDoItem),
     headers: { 'Content-Type': 'application/json' }
   });
-  yield put({ type: LOAD_TODO_LIST });
+  const data = yield response.json();
+  yield put({ type: RENDER_TODO_LIST, toDoList: data });
 }
 
 export default function* rootSaga() {
