@@ -1,4 +1,4 @@
-import { ADD_TODO, RENDER_TODO_LIST, USER_PROFILE_LOADED } from '../actions';
+import { ADD_TODO, RENDER_TODO_LIST, USER_PROFILE_LOADED, REORDER_LIST } from '../actions';
 
 const initialState = {
   toDoList: []
@@ -27,6 +27,9 @@ export default function toDoApp(state = initialState, action) {
         ...state,
         user: action.user
       };
+    case REORDER_LIST:
+      console.log('REORDER_LIST', action.listIds);
+      return state;
     default:
       return state;
   }
