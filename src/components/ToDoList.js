@@ -13,7 +13,6 @@ class ToDoList extends React.Component {
 
   render() {
     const sortList = this.list();
-    console.log(sortList);
 
     return (
       <Jumbotron>
