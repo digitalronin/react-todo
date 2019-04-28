@@ -5,9 +5,9 @@ const mapStateToProps = state => {
   return {
     toDoList: state.toDoList,
     onChange: (order, sortable, evt) => {
-      console.log('order', order)
-      console.log('sortable', sortable)
-      console.log('evt', evt)
+      console.log('order', order);
+      console.log('sortable', sortable);
+      console.log('evt', evt);
     }
   };
 };
