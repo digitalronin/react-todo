@@ -7,9 +7,9 @@ API='http://localhost:4567/api'
 main() {
   local readonly title=$1
 
-  local data='{"todo":{"title":"'
+  local data='{"title":"'
   data+=${title}
-  data+='"}}'
+  data+='"}'
 
   echo $data
 

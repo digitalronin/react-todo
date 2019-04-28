@@ -44,8 +44,7 @@ class Api < Sinatra::Base
 
   post '/api' do
     content_type :json
-    data = JSON.parse request.body.read
-    TodoList.add_item data["todo"]
+    TodoList.add_item JSON.parse(request.body.read)
     201
   end
 
