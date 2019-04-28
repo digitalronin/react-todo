@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const ToDo = ({ title }) => (
-  <ListGroup.Item data-id={title}>{title}</ListGroup.Item>
+const ToDo = ({ title, _id }) => (
+  <ListGroup.Item data-id={_id}>{title}</ListGroup.Item>
 );
 
 ToDo.propTypes = {
