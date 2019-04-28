@@ -7,10 +7,10 @@ import {
 } from '../actions';
 import { handleAuthentication } from '../Auth';
 
+const API = 'http://localhost:4567/api';
+
 export function* fetchToDoList() {
-  const endpoint =
-    'https://raw.githubusercontent.com/digitalronin/react-todo/master/initial-todo-list.json';
-  const response = yield call(fetch, endpoint);
+  const response = yield call(fetch, API);
   const data = yield response.json();
   yield put({ type: RENDER_TODO_LIST, toDoList: data });
 }
