@@ -45,7 +45,7 @@ class Api < Sinatra::Base
   post '/api' do
     content_type :json
     TodoList.add_item JSON.parse(request.body.read)
-    201
+    TodoList.to_json
   end
 
   put '/api/reorder' do
