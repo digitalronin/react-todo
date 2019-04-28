@@ -14,7 +14,7 @@ class TodoList
   end
 
   def self.add_item(item)
-    item["_id"] = @@counter
+    item["_id"] = "id#{@@counter}"
     @@items << item
     @@counter += 1
   end
