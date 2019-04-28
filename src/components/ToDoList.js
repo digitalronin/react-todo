@@ -24,7 +24,7 @@ class ToDoList extends React.Component {
           tag="div"
           className="list-group"
           onChange={(order, sortable, evt) => {
-            this.props.onChange(order, sortable, evt);
+            this.props.onChange(order);
           }}
         >
           {sortList}
