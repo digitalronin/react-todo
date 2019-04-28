@@ -30,7 +30,7 @@ class ToDoList extends React.Component {
             }
           }}
           onChange={(order, sortable, evt) => {
-            this.props.onChange(order);
+            this.props.onChange(order, sortable, evt);
           }}
         >
           {sortList}
