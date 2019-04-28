@@ -4,30 +4,30 @@ require 'bundler/setup'
 require 'sinatra/base'
 require 'json'
 
+class TodoList
+  @@items = []
+  @@counter = 0
+
+  def self.to_json
+    @@items.to_json
+  end
+
+  def self.add_item(item)
+    item["_id"] = @@counter
+    @@items << item
+    @@counter += 1
+  end
+
+  def self.reorder(ids)
+    list = ids.map do |id|
+      @@items.find {|item| item['_id'] == id}
+    end
+    @@items = list
+  end
+end
+
 class Api < Sinatra::Base
   set :bind, '0.0.0.0'
-
-  class TodoList
-    @@items = []
-    @@counter = 0
-
-    def self.to_json
-      @@items.to_json
-    end
-
-    def self.add_item(item)
-      item["_id"] = @@counter
-      @@items << item
-      @@counter += 1
-    end
-
-    def self.reorder(ids)
-      list = ids.map do |id|
-        @@items.find {|item| item['_id'] == id}
-      end
-      @@items = list
-    end
-  end
 
   get '/api' do
     TodoList.to_json
