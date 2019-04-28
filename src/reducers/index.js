@@ -1,4 +1,9 @@
-import { ADD_TODO, RENDER_TODO_LIST, USER_PROFILE_LOADED, REORDER_LIST } from '../actions';
+import {
+  ADD_TODO,
+  RENDER_TODO_LIST,
+  USER_PROFILE_LOADED,
+  REORDER_LIST
+} from '../actions';
 
 const initialState = {
   toDoList: []
