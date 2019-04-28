@@ -3,6 +3,7 @@ import {
   ADD_TODO,
   LOAD_TODO_LIST,
   RENDER_TODO_LIST,
+  REORDER_LIST,
   HANDLE_AUTHENTICATION_CALLBACK,
   USER_PROFILE_LOADED
 } from '../actions';
@@ -43,6 +44,26 @@ export function* asyncAddToDoItem(action) {
   yield put({ type: RENDER_TODO_LIST, toDoList: data });
 }
 
+export function* reorderList() {
+  yield takeLatest(REORDER_LIST, asyncReorderList);
+}
+
+export function* asyncReorderList(action) {
+  const endpoint = `${API}/reorder`;
+  const response = yield call(fetch, endpoint, {
+    method: 'PUT',
+    body: JSON.stringify(action.listIds),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  const data = yield response.json();
+  yield put({ type: RENDER_TODO_LIST, toDoList: data });
+}
+
 export default function* rootSaga() {
-  yield all([loadToDoList(), addToDoItem(), handleAuthenticationCallback()]);
+  yield all([
+    loadToDoList(),
+    addToDoItem(),
+    reorderList(),
+    handleAuthenticationCallback()
+  ]);
 }
