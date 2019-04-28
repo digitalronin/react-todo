@@ -9,6 +9,14 @@ const initialState = {
   toDoList: []
 };
 
+function reorderList(list, ids) {
+  return ids.map(id =>
+    list.find(obj => {
+      return obj._id === id;
+    })
+  );
+}
+
 export default function toDoApp(state = initialState, action) {
   switch (action.type) {
     case RENDER_TODO_LIST:
@@ -33,8 +41,10 @@ export default function toDoApp(state = initialState, action) {
         user: action.user
       };
     case REORDER_LIST:
-      console.log('REORDER_LIST', action.listIds);
-      return state;
+      return {
+        ...state,
+        toDoList: reorderList(state.toDoList, action.listIds)
+      };
     default:
       return state;
   }
