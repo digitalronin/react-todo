@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
+import { reorderList } from '../actions';
 import ToDoList from '../components/ToDoList';
 
 const mapStateToProps = state => {
+  return { toDoList: state.toDoList };
+};
+
+const mapDispatchToProps = dispatch => {
   return {
-    toDoList: state.toDoList,
-    onChange: (order, sortable, evt) => {
-      console.log('order', order);
-      console.log('sortable', sortable);
-      console.log('evt', evt);
-    }
+    onChange: ids => dispatch(reorderList(ids))
   };
 };
 
-const ToDoListContainer = connect(mapStateToProps)(ToDoList);
+const ToDoListContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ToDoList);
 
 export default ToDoListContainer;
