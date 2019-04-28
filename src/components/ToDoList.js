@@ -12,7 +12,6 @@ class ToDoList extends React.Component {
   }
 
   render() {
-    let sortable = null;
     const sortList = this.list();
     console.log(sortList);
 
@@ -24,11 +23,6 @@ class ToDoList extends React.Component {
           }}
           tag="div"
           className="list-group"
-          ref={c => {
-            if (c) {
-              sortable = c.sortable;
-            }
-          }}
           onChange={(order, sortable, evt) => {
             this.props.onChange(order, sortable, evt);
           }}
