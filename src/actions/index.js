@@ -15,7 +15,6 @@ export function addToDo(title) {
   return {
     type: ADD_TODO,
     toDoItem: {
-      _id: new Date().getTime().toString(),
       title
     }
   };
