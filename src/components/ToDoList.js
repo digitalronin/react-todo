@@ -4,15 +4,19 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import ToDo from './ToDo';
 
-const ToDoList = ({ toDoList }) => (
-  <Jumbotron>
-    <ListGroup>
-      {toDoList.map((toDo, index) => (
-        <ToDo key={index} {...toDo} />
-      ))}
-    </ListGroup>
-  </Jumbotron>
-);
+class ToDoList extends React.Component {
+  render() {
+    return (
+      <Jumbotron>
+        <ListGroup>
+          {this.props.toDoList.map((toDo, index) => (
+            <ToDo key={index} {...toDo} />
+          ))}
+        </ListGroup>
+      </Jumbotron>
+    );
+  }
+}
 
 ToDoList.propTypes = {
   toDoList: PropTypes.arrayOf(
